@@ -14,10 +14,22 @@ var taskItems = []string{
 func main() {
 	fmt.Println("##### Welcome to my ToDo App")
 
-	http.HandleFunc("/", helloWorld)
-	http.HandleFunc("/show-tasks", showTasks)
+	// http.HandleFunc("/", helloWorld)
+	// http.HandleFunc("/show-tasks", showTasks)
 
-	http.ListenAndServe(":8080", nil)
+	// http.ListenAndServe(":8080", nil)
+	var city string = "Istanbul"
+	fmt.Println("Enter city name:")
+	fmt.Scan(&city)
+
+	switch city {
+	case "London":
+		fmt.Println("The city is London")
+	case "New York":
+		fmt.Println("The city is New York")
+	case "Tokyo":
+		fmt.Println("The city is Tokyo")
+	}
 }
 
 func showTasks(w http.ResponseWriter, r *http.Request) {
@@ -36,5 +48,3 @@ func printTasks(arr []string) {
 func helloWorld(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Hello, World!")
 }
-
-// func addTasks()
