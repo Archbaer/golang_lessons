@@ -17,6 +17,9 @@ func main() {
 	fmt.Println("##### Welcome to my ToDo App")
 
 	greetings.Greet("Alice")
+
+	fmt.Printf("My favorite number is %d\n", greetings.MyNumber)
+
 	// http.HandleFunc("/", helloWorld)
 	// http.HandleFunc("/show-tasks", showTasks)
 
