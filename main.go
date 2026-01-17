@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"modulos/greetings"
 	"modulos/helper"
 	"net/http"
 )
@@ -15,6 +16,7 @@ var taskItems = []string{
 func main() {
 	fmt.Println("##### Welcome to my ToDo App")
 
+	greetings.Greet("Alice")
 	// http.HandleFunc("/", helloWorld)
 	// http.HandleFunc("/show-tasks", showTasks)
 
