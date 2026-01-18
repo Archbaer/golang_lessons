@@ -4,13 +4,41 @@ import (
 	"fmt"
 	"modulos/greetings"
 	"modulos/helper"
-	"net/http"
 )
 
 var taskItems = []string{
 	"Learn Go",
 	"Build a web app",
 	"Deploy the app",
+}
+
+type UserData struct {
+	Name     string
+	Age      uint
+	Email    string
+	isMember bool
+}
+
+var user = UserData{
+	Name:     "Alice",
+	Age:      30,
+	Email:    "alice.wonderland@outlook.com",
+	isMember: true,
+}
+
+var userMap = map[string]UserData{
+	"user1": {
+		Name:     "Alice",
+		Age:      30,
+		Email:    "alice.wonderland@outlook.com",
+		isMember: true,
+	},
+	"user2": {
+		Name:     "Bob",
+		Age:      25,
+		Email:    "bob1.genko@gmail.com",
+		isMember: false,
+	},
 }
 
 func main() {
@@ -20,34 +48,9 @@ func main() {
 
 	fmt.Printf("My favorite number is %d\n", greetings.MyNumber)
 
-	// http.HandleFunc("/", helloWorld)
-	// http.HandleFunc("/show-tasks", showTasks)
-
-	// http.ListenAndServe(":8080", nil)
-	// var city string = "Istanbul"
-	// fmt.Println("Enter city name:")
-	// fmt.Scan(&city)
-
-	// switch city {
-	// case "London":
-	// 	fmt.Println("The city is London")
-	// case "New York":
-	// 	fmt.Println("The city is New York")
-	// case "Tokyo":
-	// 	fmt.Println("The city is Tokyo")
-	// }
-
 	helper.PrintTasks(taskItems)
+	fmt.Printf("User Data: %+v\n", user)
+	fmt.Printf("\n")
+	fmt.Printf("User Map: %+v\n", userMap["user2"])
 
-}
-
-func showTasks(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("List of tasks:")
-	for i, item := range taskItems {
-		fmt.Fprintf(w, "%d. %s\n", i+1, item)
-	}
-}
-
-func helloWorld(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello, World!")
 }
