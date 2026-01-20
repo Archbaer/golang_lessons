@@ -2,8 +2,6 @@ package main
 
 import (
 	"fmt"
-	"modulos/greetings"
-	"modulos/helper"
 )
 
 var taskItems = []string{
@@ -42,15 +40,11 @@ var userMap = map[string]UserData{
 }
 
 func main() {
-	fmt.Println("##### Welcome to my ToDo App")
+	intChannel := make(chan int)
 
-	greetings.Greet("Alice")
+	go func() {
+		intChannel <- 2
+	}()
 
-	fmt.Printf("My favorite number is %d\n", greetings.MyNumber)
-
-	helper.PrintTasks(taskItems)
-	fmt.Printf("User Data: %+v\n", user)
-	fmt.Printf("\n")
-	fmt.Printf("User Map: %+v\n", userMap["user2"])
-
+	fmt.Println(<-intChannel)
 }
